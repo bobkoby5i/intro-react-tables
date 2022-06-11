@@ -1,14 +1,14 @@
-import './BasicPaginationBootstrap.css';
+import './BootstrapTable';
 import React, {useState} from "react";
 import JsonData from "../../data/MOCK_DATA_CUSTOMERS.json"
 // import ReactPaginate from 'react-paginate';
 import Pagination from 'react-bootstrap/Pagination'
 
-function BasicPagination() {
-  const [users, setUsers] = useState(JsonData.slice(0,50));
+function BootstrapTable() {
+  const [users, setUsers] = useState(JsonData.slice(0,1000));
   const [pageNumber,setPageNumber] = useState(0);
   
-  const usersPerPage = 10;
+  const usersPerPage = 40;
   const usersVisited = pageNumber * usersPerPage;
 
   const pageCount = Math.ceil(users.length / usersPerPage);
@@ -93,7 +93,7 @@ function BasicPagination() {
 
   return (
     <div className="users">
-      <h2>Users</h2>
+      <h2>Users Bootstrap Table</h2>
       <div>
           {displayUsers}
 
@@ -118,4 +118,4 @@ function BasicPagination() {
   );
 }
 
-export default BasicPagination;
+export default BootstrapTable;
