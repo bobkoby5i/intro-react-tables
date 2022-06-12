@@ -8,6 +8,8 @@ import { faSortUp as fasFaSortUp, faSortDown as fasFaSortDown } from '@fortaweso
 import { faStar as farFaSort } from '@fortawesome/free-regular-svg-icons';
 import GlobalFilter from "./GlobalFilter"
 import ColumnFilter from './ColumnFilter'
+import GlobalFilterDebounce from "./GlobalFilterDebounce"
+import ColumnFilterDebounce from './ColumnFilterDebounce'
 import "./BasicTable.css"
 
 
@@ -17,7 +19,7 @@ const FilteringTable = () => {
 
     const defaultColumn = useMemo(() => {
         return {
-            Filter: ColumnFilter
+            Filter: ColumnFilterDebounce
         }
     }, [])
 
@@ -43,8 +45,8 @@ const FilteringTable = () => {
 
     return (
         <>
-            <div>react-table Filtering Table with (useGlobalFilter, useFilters) and sorting </div>
-            <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
+            <div>react-table Filtering Table with (useGlobalFilter, useFilters) and sorting and debounce </div>
+            <GlobalFilterDebounce filter={globalFilter} setFilter={setGlobalFilter}/>
             <table {...getTableProps()}>
                 <thead>
                     {

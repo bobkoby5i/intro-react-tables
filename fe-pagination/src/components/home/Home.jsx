@@ -12,6 +12,7 @@ function Home() {
             <li><a href="BasicTableGroupHeaders">react-table header group css</a></li>
             <li><a href="SortingTable">react-table header sorting</a></li>
             <li><a href="FilteringTable">react-table header filtering global and column</a></li>
+            <li><a href="FilteringTableDebounce">react-table header filtering global and column debounce</a></li>
         </ul>
     </div>
   )

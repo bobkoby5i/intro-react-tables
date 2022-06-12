@@ -11,6 +11,7 @@ import BasicTable from "./components/04_ReactTables/BasicTable"
 import BasicTableGroupHeaders from "./components/04_ReactTables/BasicTableGroupHeaders"
 import SortingTable from "./components/04_ReactTables/SortingTable"
 import FilteringTable from "./components/04_ReactTables/FilteringTable"
+import FilteringTableDebounce from "./components/04_ReactTables/FilteringTableDebounce"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,6 +30,7 @@ function App() {
               <Route exact path='/BasicTableGroupHeaders' element={<BasicTableGroupHeaders/>} />
               <Route exact path='/SortingTable' element={<SortingTable/>} />
               <Route exact path='/FilteringTable' element={<FilteringTable/>} />
+              <Route exact path='/FilteringTableDebounce' element={<FilteringTableDebounce/>} />
             </Routes>
           </div>
         </Fragment>
