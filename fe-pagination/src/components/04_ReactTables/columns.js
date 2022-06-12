@@ -1,3 +1,5 @@
+import {format, parseISO} from 'date-fns';
+
 export const COLUMNS=[
     {
         Header:'Id',
@@ -22,8 +24,9 @@ export const COLUMNS=[
     {
         Header:'Date of Birth',
         Footer:'Date of Birth',
-        accessor:"dob"
-    },
+        accessor:"dob",
+        Cell: ({value}) => {return format(parseISO(value, "YYYY-MM-DD"), "MM/dd/yyyy")}
+        },
     {
         Header:'SSN',
         Footer:'SSN',
@@ -32,7 +35,8 @@ export const COLUMNS=[
     {
         Header:'Order Date',
         Footer:'Order Date',
-        accessor:"order_date"
+        accessor:"order_date",
+        Cell: ({value}) => {return format(parseISO(value), "MM/dd/yyyy")}
     },      
     {
         Header:'email',

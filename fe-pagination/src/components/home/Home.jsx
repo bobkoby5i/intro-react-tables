@@ -11,9 +11,7 @@ function Home() {
             <li><a href="ReactTablesBasicTable">react-table header css</a></li>
             <li><a href="BasicTableGroupHeaders">react-table header group css</a></li>
             <li><a href="SortingTable">react-table header sorting</a></li>
-
-            
-
+            <li><a href="FilteringTable">react-table header filtering global</a></li>
         </ul>
     </div>
   )
