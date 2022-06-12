@@ -14,6 +14,9 @@ function Home() {
             <li><a href="FilteringTable">react-table header filtering global and column</a></li>
             <li><a href="FilteringTableDebounce">react-table header filtering global and column debounce</a></li>
             <li><a href="ReactTablePagination">react-table header pagination</a></li>
+            <li><a href="ReactTablePaginationSort">react-table header pagination and sort</a></li>
+
+            
         </ul>
     </div>
   )

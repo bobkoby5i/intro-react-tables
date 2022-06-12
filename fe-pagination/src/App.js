@@ -13,6 +13,9 @@ import SortingTable from "./components/04_ReactTables/SortingTable"
 import FilteringTable from "./components/04_ReactTables/FilteringTable"
 import FilteringTableDebounce from "./components/04_ReactTables/FilteringTableDebounce"
 import ReactTablePagination from "./components/04_ReactTables/ReactTablePagination"
+import ReactTablePaginationSort from "./components/04_ReactTables/ReactTablePaginationSort"
+
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,6 +36,7 @@ function App() {
               <Route exact path='/FilteringTable' element={<FilteringTable/>} />
               <Route exact path='/FilteringTableDebounce' element={<FilteringTableDebounce/>} />
               <Route exact path='/ReactTablePagination' element={<ReactTablePagination/>} />
+              <Route exact path='/ReactTablePaginationSort' element={<ReactTablePaginationSort/>} />
             </Routes>
           </div>
         </Fragment>
