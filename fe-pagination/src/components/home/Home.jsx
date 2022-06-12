@@ -8,7 +8,11 @@ function Home() {
             <li><a href="BasicPagination">ReactPaginate component</a></li>
             <li><a href="BasicPaginationBootstrap">react-bootstrap/Pagination compoment</a></li>
             <li><a href="BootstrapTable">react-bootstrap/Pagination compoment and bootstrap table - TODO</a></li>
-            <li><a href="ReactTablesBasicTable">react-table </a></li>
+            <li><a href="ReactTablesBasicTable">react-table header css</a></li>
+            <li><a href="BasicTableGroupHeaders">react-table header group css</a></li>
+            <li><a href="SortingTable">react-table header sorting</a></li>
+
+            
 
         </ul>
     </div>

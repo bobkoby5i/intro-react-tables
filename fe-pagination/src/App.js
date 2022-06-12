@@ -8,16 +8,16 @@ import BasicPagination from "./components/01_basicPagination/BasicPagination"
 import BasicPaginationBootstrap from "./components/02_BasicBootstrap/BasicPaginationBootstrap";
 import BootstrapTable from  "./components/03_BootstrapTable/BootstrapTable"
 import BasicTable from "./components/04_ReactTables/BasicTable"
+import BasicTableGroupHeaders from "./components/04_ReactTables/BasicTableGroupHeaders"
+import SortingTable from "./components/04_ReactTables/SortingTable"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
   return (
     <>
       <Router>
         <Fragment>
-
           <div className="container">
             <Routes>
               <Route exact path='/' element={<Home/>} />
@@ -25,9 +25,8 @@ function App() {
               <Route exact path='/BasicPaginationBootstrap' element={<BasicPaginationBootstrap/>} />
               <Route exact path='/BootstrapTable' element={<BootstrapTable/>} />
               <Route exact path='/ReactTablesBasicTable' element={<BasicTable/>} />
-                {/* <BasicPagination/> */}
-                {/* <BasicPaginationBootstrap/> */}
-                {/* <BootstrapTable/> */}
+              <Route exact path='/BasicTableGroupHeaders' element={<BasicTableGroupHeaders/>} />
+              <Route exact path='/SortingTable' element={<SortingTable/>} />
             </Routes>
           </div>
         </Fragment>

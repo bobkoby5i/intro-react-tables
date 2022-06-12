@@ -5,8 +5,8 @@ import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css"
 
 
-const BasicTable = () => {
-    const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
+const BasicTableGroupHeaders = () => {
+    const columns = useMemo(() => GROUPED_COLUMNS, []) // COLUMNS GROUPED_COLUMNS
     
     const data = useMemo(() => MOCK_DATA, [])
 
@@ -26,7 +26,7 @@ const BasicTable = () => {
 
     return (
         <>
-            <div>react-table BasicTable</div>
+            <div>react-table BasicTableGroupHeaders</div>
             <table {...getTableProps()}>
                 <thead>
                     {
@@ -83,4 +83,4 @@ const BasicTable = () => {
     )
 }
 
-export default BasicTable;
+export default BasicTableGroupHeaders;
