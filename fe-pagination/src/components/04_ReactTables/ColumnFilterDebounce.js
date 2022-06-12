@@ -3,7 +3,7 @@ import { useAsyncDebounce } from "react-table";
 
 // setFilter setter function fro main component with table
 // filter - value of text input 
-export default function ColumnFilter({column }) {
+export default function ColumnFilterDebounce({column }) {
   const [value, setValue] = useState(column.filterValue)
   const {filterValue, setFilter} = column;
 

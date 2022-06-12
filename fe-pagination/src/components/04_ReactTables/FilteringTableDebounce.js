@@ -13,7 +13,7 @@ import ColumnFilterDebounce from './ColumnFilterDebounce'
 import "./BasicTable.css"
 
 
-const FilteringTable = () => {
+const FilteringTableDebounce = () => {
     const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
     const data = useMemo(() => MOCK_DATA.slice(0,500), [])
 
@@ -115,4 +115,4 @@ const FilteringTable = () => {
     )
 }
 
-export default FilteringTable;
+export default FilteringTableDebounce;
