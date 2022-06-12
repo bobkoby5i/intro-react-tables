@@ -35,7 +35,6 @@ function BasicPagination() {
     <div className="users">
       <h2>Users</h2>
       <div>
-          {displayUsers}
           <ReactPaginate
             pageCount={pageCount}
             previousLabel={"Prev"}
@@ -48,6 +47,7 @@ function BasicPagination() {
             disabledClassName={"paginationDisabled"}
             activeClassName={"paginationActive"}
           />
+          {displayUsers}
       </div>
     </div>
   );

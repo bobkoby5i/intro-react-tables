@@ -94,26 +94,10 @@ function BasicPagination() {
   return (
     <div className="users">
       <h2>Users</h2>
+      {paginationBasic}
       <div>
           {displayUsers}
-
-
-
-          {/* <ReactPaginate
-            pageCount={pageCount}
-            previousLabel={"Prev"}
-            nextLabel={"Next"}
-            onPageChange={changePage}
-            siblingCount={1}
-            containerClassName={"paginationBttns"}
-            previousLinkClassName={"prevoiusBttn"}
-            nextLinkClassName={"nextBttn"}
-            disabledClassName={"paginationDisabled"}
-            activeClassName={"paginationActive"}
-          /> */}
-
       </div>
-      {paginationBasic}
     </div>
   );
 }
