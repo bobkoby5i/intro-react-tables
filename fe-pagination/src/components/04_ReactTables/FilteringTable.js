@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import { useTable, useSortBy, useGlobalFilter, useFilters } from "react-table";
 import MOCK_DATA from "../../data/MOCK_DATA_CUSTOMERS.json";
 import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,18 +7,25 @@ import { faSort as fasFaSort} from '@fortawesome/free-solid-svg-icons';
 import { faSortUp as fasFaSortUp, faSortDown as fasFaSortDown } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farFaSort } from '@fortawesome/free-regular-svg-icons';
 import GlobalFilter from "./GlobalFilter"
+import ColumnFilter from './ColumnFilter'
 import "./BasicTable.css"
 
 
 const FilteringTable = () => {
     const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
-    
     const data = useMemo(() => MOCK_DATA.slice(0,1000), [])
+
+    const defaultColumn = useMemo(() => {
+        return {
+            Filter: ColumnFilter
+        }
+    }, [])
 
     const tableInstance = useTable({
         columns, // ES6 syntax columns:columns
         data: data,
-    }, useGlobalFilter, useSortBy)
+        defaultColumn: defaultColumn
+    }, useFilters,useGlobalFilter, useSortBy)
 
     // get functions and arrays from reactTable hook
     const { 
@@ -36,7 +43,7 @@ const FilteringTable = () => {
 
     return (
         <>
-            <div>react-table GlobalFilter with sorting </div>
+            <div>react-table Filtering Table with (useGlobalFilter, useFilters) and sorting </div>
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
             <table {...getTableProps()}>
                 <thead>
@@ -45,8 +52,8 @@ const FilteringTable = () => {
                             <tr {...headerGroup.getHeaderGroupProps()}>
                                 {
                                     headerGroup.headers.map((column, index) => (
-                                        <th key={index} {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                            <span style={{color: column.isSorted ? "white" : "green"}}  >
+                                        <th key={index}>
+                                            <span {...column.getHeaderProps(column.getSortByToggleProps())} style={{color: column.isSorted ? "white" : "green"}}  >
                                                 {/* {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon="fa-solid fa-sort" /> : ' U') : ''} */}
                                                 {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon={fasFaSortDown} /> : <FontAwesomeIcon icon={fasFaSortUp} />) : <FontAwesomeIcon icon={fasFaSort} />}
                                             </span>
@@ -54,6 +61,9 @@ const FilteringTable = () => {
                                             {/* <span style={{color: column.isSorted ? "bue" : "red"}}  >
                                                 {column.isSorted ? (column.isSortedDesc ? <i className="fas fa-sort-down"></i> : <i className="fas fa-sort-up"></i> ) : <FontAwesomeIcon icon={"fa-regular fa-coffee"} />}
                                             </span>                                             */}
+                                            <div>
+                                                {column.canFilter ? column.render('Filter') : null}
+                                            </div>
                                         </th>
                                     ))
                                 }
