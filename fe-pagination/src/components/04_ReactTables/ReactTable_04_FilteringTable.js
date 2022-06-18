@@ -11,7 +11,7 @@ import ColumnFilter from './ColumnFilter'
 import "./BasicTable.css"
 
 
-const FilteringTable = () => {
+const ReactTable_FilteringTable = () => {
     const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
     const data = useMemo(() => MOCK_DATA.slice(0,500), [])
 
@@ -45,7 +45,7 @@ const FilteringTable = () => {
         <>
             <div>react-table Filtering Table with (useGlobalFilter, useFilters) and sorting </div>
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-            <table {...getTableProps()}>
+            <table className="table-bob" {...getTableProps()}>
                 <thead>
                     {
                         headerGroups.map((headerGroup) => (
@@ -113,4 +113,4 @@ const FilteringTable = () => {
     )
 }
 
-export default FilteringTable;
+export default ReactTable_FilteringTable;

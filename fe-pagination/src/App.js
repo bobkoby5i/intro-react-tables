@@ -4,20 +4,26 @@ import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-do
 
 import Home from "./components/home/Home"
 
-import BasicPagination from "./components/01_basicPagination/BasicPagination"
-import BasicPaginationBootstrap from "./components/02_BasicBootstrap/BasicPaginationBootstrap";
-import BootstrapTable from  "./components/03_BootstrapTable/BootstrapTable"
-import BasicTable from "./components/04_ReactTables/BasicTable"
-import BasicTableGroupHeaders from "./components/04_ReactTables/BasicTableGroupHeaders"
-import SortingTable from "./components/04_ReactTables/SortingTable"
-import FilteringTable from "./components/04_ReactTables/FilteringTable"
-import FilteringTableDebounce from "./components/04_ReactTables/FilteringTableDebounce"
-import ReactTablePagination from "./components/04_ReactTables/ReactTablePagination"
-import ReactTablePaginationSort from "./components/04_ReactTables/ReactTablePaginationSort"
+import BasicPagination                  from "./components/01_basicPagination/BasicPagination"
+import BasicPaginationBootstrap         from "./components/02_BasicBootstrap/BasicPaginationBootstrap";
+import BasicPaginationBootstrapAndTable from "./components/03_BootstrapTable/BasicPaginationBootstrapAndTable"
+
+
+// react-table
+import ReactTable_BasicTable              from "./components/04_ReactTables/ReactTable_01_BasicTable"
+import ReactTable_BasicTableGroupHeaders  from "./components/04_ReactTables/ReactTable_02_BasicTableGroupHeaders"
+import ReactTable_SortingTable            from "./components/04_ReactTables/ReactTable_03_SortingTable"
+
+import ReactTable_FilteringTable          from "./components/04_ReactTables/ReactTable_04_FilteringTable"
+import ReactTable_FilteringTable_Debounce from "./components/04_ReactTables/ReactTable_05_FilteringTable_Debounce"
+import ReactTable_Pagination              from "./components/04_ReactTables/ReactTable_06_Pagination"
+import ReactTable_Pagination_Filter_Sort  from "./components/04_ReactTables/ReactTable_07_Pagination_Filter_Sort"
+import ReactTable_Pagination_Filter_Sort_Bootstrap  from "./components/04_ReactTables/ReactTable_08_Pagination_Filter_Sort_Bootstrap"
 
 
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -29,14 +35,15 @@ function App() {
               <Route exact path='/' element={<Home/>} />
               <Route exact path='/BasicPagination' element={<BasicPagination/>} />
               <Route exact path='/BasicPaginationBootstrap' element={<BasicPaginationBootstrap/>} />
-              <Route exact path='/BootstrapTable' element={<BootstrapTable/>} />
-              <Route exact path='/ReactTablesBasicTable' element={<BasicTable/>} />
-              <Route exact path='/BasicTableGroupHeaders' element={<BasicTableGroupHeaders/>} />
-              <Route exact path='/SortingTable' element={<SortingTable/>} />
-              <Route exact path='/FilteringTable' element={<FilteringTable/>} />
-              <Route exact path='/FilteringTableDebounce' element={<FilteringTableDebounce/>} />
-              <Route exact path='/ReactTablePagination' element={<ReactTablePagination/>} />
-              <Route exact path='/ReactTablePaginationSort' element={<ReactTablePaginationSort/>} />
+              <Route exact path='/BasicPaginationBootstrapAndTable' element={<BasicPaginationBootstrapAndTable/>} />
+              <Route exact path='/ReactTable_BasicTable' element={<ReactTable_BasicTable/>} />
+              <Route exact path='/ReactTable_BasicTableGroupHeaders' element={<ReactTable_BasicTableGroupHeaders/>} />
+              <Route exact path='/ReactTable_SortingTable' element={<ReactTable_SortingTable/>} />
+              <Route exact path='/ReactTable_FilteringTable' element={<ReactTable_FilteringTable/>} />
+              <Route exact path='/ReactTable_FilteringTable_Debounce' element={<ReactTable_FilteringTable_Debounce/>} />
+              <Route exact path='/ReactTable_Pagination' element={<ReactTable_Pagination/>} />
+              <Route exact path='/ReactTable_Pagination_Filter_Sort' element={<ReactTable_Pagination_Filter_Sort/>} />
+              <Route exact path='/ReactTable_Pagination_Filter_Sort_Bootstrap' element={<ReactTable_Pagination_Filter_Sort_Bootstrap/>} />
             </Routes>
           </div>
         </Fragment>

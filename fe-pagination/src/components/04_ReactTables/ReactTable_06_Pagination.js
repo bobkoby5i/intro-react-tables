@@ -5,7 +5,7 @@ import { COLUMNS, GROUPED_COLUMNS } from "./columns";
 import "./BasicTable.css"
 
 
-const ReactTablePagination = () => {
+const ReactTable_Pagination = () => {
     const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
     const data = useMemo(() => MOCK_DATA, [])
     
@@ -70,7 +70,7 @@ const ReactTablePagination = () => {
                 <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
                 <button onClick={() => gotoPage(pageCount-1)} disabled={!canNextPage}>{'>>'}</button>
             </div>            
-            <table {...getTableProps()}>
+            <table className="table-bob"  {...getTableProps()}>
                 <thead>
                     {
                         headerGroups.map((headerGroup) => (
@@ -112,4 +112,4 @@ const ReactTablePagination = () => {
     )
 }
 
-export default ReactTablePagination;
+export default ReactTable_Pagination;

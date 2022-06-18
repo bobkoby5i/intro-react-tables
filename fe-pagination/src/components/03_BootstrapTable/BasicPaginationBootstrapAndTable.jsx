@@ -1,8 +1,11 @@
-import './BootstrapTable';
+import './BasicPaginationBootstrapAndTable';
 import React, {useState} from "react";
 import JsonData from "../../data/MOCK_DATA_CUSTOMERS.json"
 // import ReactPaginate from 'react-paginate';
 import Pagination from 'react-bootstrap/Pagination'
+import "./BasicPaginationBootstrapAndTable.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrashAlt, faEye } from '@fortawesome/free-solid-svg-icons';
 
 function BootstrapTable() {
   const [users, setUsers] = useState(JsonData.slice(0,1000));
@@ -15,16 +18,11 @@ function BootstrapTable() {
   const lastPage  = pageCount === 0 ? 0 : pageCount -1 ;
 
 
-  const displayUsers =  users.slice(usersVisited,usersVisited + usersPerPage)
-  .map(user => {
-    return (
-      <div key={user.id} className="user">
-      <h3>#{user.id} {user.first_name} {user.last_name}</h3>
-      <h3>{user.email}</h3>
-    </div>
-    )
-  })
-  
+ 
+
+
+
+
   const onClickPage = (event) => {
     console.log(event)
     console.log(event.target.text)
@@ -80,40 +78,54 @@ function BootstrapTable() {
         <Pagination.Next onClick={onClickNextPage}/>
         <Pagination.Last onClick={onClickLastPage}/>
         </Pagination>
-      {/* <br />
-  
-      <Pagination size="lg">{items}</Pagination>
-      <br />
-  
+      {/* 
+      <Pagination size="lg">{items}</Pagination> <br />
       <Pagination size="sm">{items}</Pagination> */}
     </div>
     
   );
+
+  const displayUserRows = () => {
+    console.log("Building rows")
+    const rows = users.slice(usersVisited,usersVisited + usersPerPage)
+    .map(user => {
+      return (
+        <tr key={user.id}>
+          <td>{user.id}</td>
+          <td>{user.first_name}</td>
+          <td>{user.last_name}</td>
+          <td>{user.email}</td>
+          <td>
+          <button className="btn btn-warning btn-sm" onClick={() => {console.log("click")}}><FontAwesomeIcon icon={faEye} /></button>
+          </td>
+          
+        </tr>
+      )})
+    return rows;  
+  }  
   
+  const rows = displayUserRows()
 
   return (
     <div className="users">
       <h2>Users Bootstrap Table</h2>
-      <div>
-          {displayUsers}
-
-
-
-          {/* <ReactPaginate
-            pageCount={pageCount}
-            previousLabel={"Prev"}
-            nextLabel={"Next"}
-            onPageChange={changePage}
-            siblingCount={1}
-            containerClassName={"paginationBttns"}
-            previousLinkClassName={"prevoiusBttn"}
-            nextLinkClassName={"nextBttn"}
-            disabledClassName={"paginationDisabled"}
-            activeClassName={"paginationActive"}
-          /> */}
-
-      </div>
       {paginationBasic}
+      <div className="table-responsive">  
+        <table className="table  table-bordered table-striped table-hover">
+          <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">first name</th>                            
+                <th scope="col">last name</th>
+                <th scope="col">email</th>
+                <th scope="col">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
