@@ -19,6 +19,9 @@ import ReactTable_FilteringTable_Debounce from "./components/04_ReactTables/Reac
 import ReactTable_Pagination              from "./components/04_ReactTables/ReactTable_06_Pagination"
 import ReactTable_Pagination_Filter_Sort  from "./components/04_ReactTables/ReactTable_07_Pagination_Filter_Sort"
 import ReactTable_Pagination_Filter_Sort_Bootstrap  from "./components/04_ReactTables/ReactTable_08_Pagination_Filter_Sort_Bootstrap"
+import ReactTable_Pagination_Filter_Sort_Bootstrap2  from "./components/04_ReactTables/ReactTable_08_Pagination_Filter_Sort_Bootstrap2"
+
+
 
 
 
@@ -44,6 +47,7 @@ function App() {
               <Route exact path='/ReactTable_Pagination' element={<ReactTable_Pagination/>} />
               <Route exact path='/ReactTable_Pagination_Filter_Sort' element={<ReactTable_Pagination_Filter_Sort/>} />
               <Route exact path='/ReactTable_Pagination_Filter_Sort_Bootstrap' element={<ReactTable_Pagination_Filter_Sort_Bootstrap/>} />
+              <Route exact path='/ReactTable_Pagination_Filter_Sort_Bootstrap2' element={<ReactTable_Pagination_Filter_Sort_Bootstrap2/>} />
             </Routes>
           </div>
         </Fragment>

@@ -20,9 +20,9 @@ import Pagination from 'react-bootstrap/Pagination'
 
 
 
-const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
+const ReactTable_Pagination_Filter_Sort_Bootstrap2 = () => {
     const columns = useMemo(() => COLUMNS, []) // COLUMNS GROUPED_COLUMNS
-    const data = useMemo(() => MOCK_DATA.slice(0,500), [])
+    const data = useMemo(() => MOCK_DATA.slice(0,512), [])
 
     // const PaginationBootsrap = () => {
     //     return (
@@ -90,6 +90,8 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
       }
 
      const { globalFilter, pageIndex, pageSize } = state;
+     const firstRow = ((pageIndex*pageSize+1) > data.length) ? 0 : (pageIndex*pageSize)+1
+     const lastRow  = (pageIndex+1)*pageSize > data.length ? data.length : (pageIndex+1)*pageSize 
 
      
      
@@ -98,27 +100,13 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
         <>
             <div>react-table Filtering Table with (useGlobalFilter, useFilters) and sorting and debounce; Pagination; Bootstrap style</div>
             <div className="row" >
-                <div className="col pagination-row-item" >
-                    <div>
-                        Page{' '}<strong>{pageIndex + 1}</strong> of <strong>{pageOptions.length}</strong>{' '}
+                <div className="col pagination-row-item"  >
+                    <div style={{ whiteSpace: 'nowrap' }}>
+                        Showing <strong>{firstRow}</strong> to <strong>{lastRow }</strong>  of <strong>{data.length}</strong> rows.
                     </div>
                 </div>                
-                <div className="col">
-                    <select class="form-select" aria-label="Default select example" value={pageSize} onChange={changePageSize}>
-                        {/* <option selected>Page size</option> */}
-                        {
-                            [10,25,50].map((pSize) => (
-                                <option key={pSize} value={pSize}>Show {pSize}</option>
-                            ))
-                        }                    
-                    </select>                        
-                </div>
-                <div className="col">
-                    <div className="input-group  mb-3">
-                        <span className="input-group-text" id="inputGroup-sizing-sm">Go to Page</span>
-                        <input type="number" defaultValue={pageIndex + 1}  onChange={chnageGotoPage} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
-                    </div>
-                </div>
+            
+
                 <div className="col">
                     <Pagination>
                         <Pagination.First disabled={!canPreviousPage} onClick={() => gotoPage(0)}/>
@@ -127,7 +115,35 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
                         <Pagination.Last  disabled={!canNextPage}     onClick={() => gotoPage(pageCount-1)}/>
                     </Pagination>
                 </div>
-                <div className="col">
+             
+
+                <div className="col col-1"  >
+                    <select class="form-select" aria-label="Default select example" value={pageSize} onChange={changePageSize}>
+                        {/* <option selected>Page size</option> */}
+                        {
+                            [10,25,50].map((pSize) => (
+                                <option key={pSize} value={pSize}>{pSize}</option>
+                            ))
+                        }                    
+                        </select>
+                </div>
+                <div className="col col-2 pagination-row-item"  >
+                        rows per page
+                </div>   
+                <div className="col col-2">
+                    <div className="input-group  mb-3">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Go to page</span>
+                        <input type="number" defaultValue={pageIndex + 1}  onChange={chnageGotoPage} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                    </div>
+                </div>                                    
+
+            </div>
+            <div className="row" >
+
+                <div className="col col-8">
+                    
+                </div>                
+                <div className="col col-4">
                     <GlobalFilterDebouncePaginateBootstrap filter={globalFilter} setFilter={setGlobalFilter} />
                 </div>
             </div>
@@ -147,16 +163,22 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
                                 {
                                     headerGroup.headers.map((column, index) => (
                                         <th key={index}>
-                                            <span {...column.getHeaderProps(column.getSortByToggleProps())} style={{color: column.isSorted ? "white" : "green"}}  >
-                                                {/* {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon="fa-solid fa-sort" /> : ' U') : ''} */}
-                                                {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon={fasFaSortDown} /> : <FontAwesomeIcon icon={fasFaSortUp} />) : <FontAwesomeIcon icon={fasFaSort} />}
-                                            </span>
-                                            {' '} {column.render('Header')} {' '}
-                                            {/* <span style={{color: column.isSorted ? "bue" : "red"}}  >
-                                                {column.isSorted ? (column.isSortedDesc ? <i className="fas fa-sort-down"></i> : <i className="fas fa-sort-up"></i> ) : <FontAwesomeIcon icon={"fa-regular fa-coffee"} />}
-                                            </span>                                             */}
-                                            <div>
-                                                {column.canFilter ? column.render('Filter') : null}
+                                            <div className="bootstrap-bob-header">
+                                                <div  style={{ whiteSpace: 'nowrap' }}>
+                                                    <span {...column.getHeaderProps(column.getSortByToggleProps())} style={{color: column.isSorted ? "#0d6efd" : "#6c757d"}}  >
+                                                        {/* {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon="fa-solid fa-sort" /> : ' U') : ''} */}
+                                                        {column.isSorted ? (column.isSortedDesc ? <FontAwesomeIcon icon={fasFaSortDown} /> : <FontAwesomeIcon icon={fasFaSortUp} />) : <FontAwesomeIcon icon={fasFaSort} />}
+                                                        
+                                                    </span>
+                                                    {"\u00a0"}{column.render('Header')}
+                                                </div>
+                                                <div>
+                                                    {column.canFilter ? column.render('Filter') : null}
+                                                </div>
+                                                
+                                                {/* <span style={{color: column.isSorted ? "bue" : "red"}}  >
+                                                    {column.isSorted ? (column.isSortedDesc ? <i className="fas fa-sort-down"></i> : <i className="fas fa-sort-up"></i> ) : <FontAwesomeIcon icon={"fa-regular fa-coffee"} />}
+                                                </span>                                             */}
                                             </div>
                                         </th>
                                     ))
@@ -207,4 +229,4 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
     )
 }
 
-export default ReactTable_Pagination_Filter_Sort_Bootstrap;
+export default ReactTable_Pagination_Filter_Sort_Bootstrap2;

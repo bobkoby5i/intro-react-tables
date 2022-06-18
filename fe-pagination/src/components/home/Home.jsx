@@ -17,6 +17,7 @@ function Home() {
             <li><a href="ReactTable_Pagination">react-table - pagination only</a></li>
             <li><a href="ReactTable_Pagination_Filter_Sort">react-table - pagination filter sort - All you need</a></li>
             <li><a href="ReactTable_Pagination_Filter_Sort_Bootstrap">react-table - pagination filter sort - All you need - NICE</a></li>
+            <li><a href="ReactTable_Pagination_Filter_Sort_Bootstrap2">react-table - pagination filter sort - All you need - can not make it workig</a></li>
         </ul>
     </div>
   )
