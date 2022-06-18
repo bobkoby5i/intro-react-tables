@@ -12,7 +12,7 @@ import { faStar as farFaSort } from '@fortawesome/free-regular-svg-icons';
 // import ColumnFilter from './ColumnFilter'
 // import GlobalFilterDebounce from "./GlobalFilterDebounce"
 import ColumnFilterDebounce from './ColumnFilterDebounce'
-import GlobalFilterDebouncePaginate from "./GlobalFilterDebouncePaginate"
+import GlobalFilterDebouncePaginateBootstrap from "./GlobalFilterDebouncePaginateBootstrap"
 
 import Pagination from 'react-bootstrap/Pagination'
 
@@ -126,9 +126,13 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap = () => {
                         <Pagination.Next  disabled={!canNextPage}     onClick={() => nextPage()}/>
                         <Pagination.Last  disabled={!canNextPage}     onClick={() => gotoPage(pageCount-1)}/>
                     </Pagination>
-                </div>            </div>
+                </div>
+                <div className="col">
+                    <GlobalFilterDebouncePaginateBootstrap filter={globalFilter} setFilter={setGlobalFilter} />
+                </div>
+            </div>
 
-            <GlobalFilterDebouncePaginate filter={globalFilter} setFilter={setGlobalFilter} />
+            
             <table className="table table-striped table-sm table-hover" {...getTableProps()}>
                 <caption>
                     List of users:{' '}
