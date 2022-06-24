@@ -162,7 +162,7 @@ const ReactTable_Pagination_Filter_Sort_Bootstrap2 = () => {
                             <tr {...headerGroup.getHeaderGroupProps()}>
                                 {
                                     headerGroup.headers.map((column, index) => (
-                                        <th key={index}>
+                                        <th style={{ verticalAlign: "top" }} key={index}>
                                             <div className="bootstrap-bob-header">
                                                 <div  style={{ whiteSpace: 'nowrap' }}>
                                                     <span {...column.getHeaderProps(column.getSortByToggleProps())} style={{color: column.isSorted ? "#0d6efd" : "#6c757d"}}  >
